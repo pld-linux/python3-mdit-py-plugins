@@ -7,7 +7,7 @@ Summary:	Collection of core plugins for markdown-it-py
 Summary(pl.UTF-8):	Zbiór podstawowych wtyczek dla modułu markdown-it-py
 Name:		python3-mdit-py-plugins
 Version:	0.3.0
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/mdit-py-plugins/
