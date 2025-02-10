@@ -6,16 +6,17 @@
 Summary:	Collection of core plugins for markdown-it-py
 Summary(pl.UTF-8):	Zbiór podstawowych wtyczek dla modułu markdown-it-py
 Name:		python3-mdit-py-plugins
-Version:	0.3.0
-Release:	4
+Version:	0.4.2
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/mdit-py-plugins/
-Source0:	https://files.pythonhosted.org/packages/source/m/mdit-py-plugins/mdit-py-plugins-%{version}.tar.gz
-# Source0-md5:	285b8d911d1c3b175e45b1fe5324da5b
+Source0:	https://pypi.debian.net/mdit-py-plugins/mdit_py_plugins-%{version}.tar.gz
+# Source0-md5:	3c943d03e071121cd41a9684c5ac5eb3
 URL:		https://pypi.org/project/mdit-py-plugins/
+BuildRequires:	python3-build
 BuildRequires:	python3-modules >= 1:3.6
-BuildRequires:	python3-setuptools >= 1:46.4.0
+BuildRequires:	python3-installer
 %if %{with tests}
 BuildRequires:	python3-markdown-it-py >= 1.0.0
 BuildRequires:	python3-pytest >= 3.6
@@ -23,7 +24,7 @@ BuildRequires:	python3-pytest-cov
 BuildRequires:	python3-pytest-regressions
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	rpmbuild(macros) >= 2.044
 %if %{with doc}
 BuildRequires:	python3-Sphinx
 BuildRequires:	python3-myst-parser >= 0.14.0
@@ -51,10 +52,10 @@ API documentation for Python mdit-py-plugins module.
 Dokumentacja API modułu Pythona mdit-py-plugins.
 
 %prep
-%setup -q -n mdit-py-plugins-%{version}
+%setup -q -n mdit_py_plugins-%{version}
 
 %build
-%py3_build
+%py3_build_pyproject
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
@@ -69,7 +70,7 @@ cd docs
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py3_install
+%py3_install_pyproject
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -78,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG.md LICENSE README.md
 %{py3_sitescriptdir}/mdit_py_plugins
-%{py3_sitescriptdir}/mdit_py_plugins-%{version}-py*.egg-info
+%{py3_sitescriptdir}/mdit_py_plugins-%{version}.dist-info
 
 %if %{with doc}
 %files apidocs
