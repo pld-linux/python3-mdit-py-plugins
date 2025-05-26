@@ -15,10 +15,13 @@ Source0:	https://pypi.debian.net/mdit-py-plugins/mdit_py_plugins-%{version}.tar.
 # Source0-md5:	3c943d03e071121cd41a9684c5ac5eb3
 URL:		https://pypi.org/project/mdit-py-plugins/
 BuildRequires:	python3-build
-BuildRequires:	python3-modules >= 1:3.6
+BuildRequires:	python3-flit_core >= 3.4
+BuildRequires:	python3-flit_core < 4
+BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	python3-installer
 %if %{with tests}
 BuildRequires:	python3-markdown-it-py >= 1.0.0
+BuildRequires:	python3-markdown-it-py < 4
 BuildRequires:	python3-pytest >= 3.6
 BuildRequires:	python3-pytest-cov
 BuildRequires:	python3-pytest-regressions
@@ -30,7 +33,7 @@ BuildRequires:	python3-Sphinx
 BuildRequires:	python3-myst-parser >= 0.14.0
 BuildRequires:	python3-sphinx_book_theme >= 0.1.0
 %endif
-Requires:	python3-modules >= 1:3.6
+Requires:	python3-modules >= 1:3.8
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
