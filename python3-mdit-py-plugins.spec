@@ -6,13 +6,13 @@
 Summary:	Collection of core plugins for markdown-it-py
 Summary(pl.UTF-8):	Zbiór podstawowych wtyczek dla modułu markdown-it-py
 Name:		python3-mdit-py-plugins
-Version:	0.4.2
-Release:	3
+Version:	0.5.0
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/mdit-py-plugins/
 Source0:	https://pypi.debian.net/mdit-py-plugins/mdit_py_plugins-%{version}.tar.gz
-# Source0-md5:	3c943d03e071121cd41a9684c5ac5eb3
+# Source0-md5:	8afddf3e020778a9d4490f43ce469d2a
 URL:		https://pypi.org/project/mdit-py-plugins/
 BuildRequires:	python3-build
 BuildRequires:	python3-flit_core >= 3.4
@@ -20,8 +20,8 @@ BuildRequires:	python3-flit_core < 4
 BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	python3-installer
 %if %{with tests}
-BuildRequires:	python3-markdown-it-py >= 1.0.0
-BuildRequires:	python3-markdown-it-py < 4
+BuildRequires:	python3-markdown-it-py >= 2.0.0
+BuildRequires:	python3-markdown-it-py < 5
 BuildRequires:	python3-pytest >= 3.6
 BuildRequires:	python3-pytest-cov
 BuildRequires:	python3-pytest-regressions
@@ -30,7 +30,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 2.044
 %if %{with doc}
 BuildRequires:	python3-Sphinx
-BuildRequires:	python3-myst-parser >= 0.14.0
+BuildRequires:	python3-myst_parser >= 0.14.0
 BuildRequires:	python3-sphinx_book_theme >= 0.1.0
 %endif
 Requires:	python3-modules >= 1:3.8
